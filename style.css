@@ -6,3 +6,18 @@ License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: brutaltheme
 */
+
+:root {
+  --accent-color: rgb(194, 29, 0);
+}
+
+* {
+  font-family: sans-serif;
+  color: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}

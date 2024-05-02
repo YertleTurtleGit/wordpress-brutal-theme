@@ -62,3 +62,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+    <div id="header">
+        <?php wp_nav_menu("main"); ?>
+    </div>
