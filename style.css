@@ -18,7 +18,8 @@ Text Domain: brutaltheme
   color: var(--font-color);
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   border: 0;
@@ -26,23 +27,55 @@ html, body {
   min-height: 100vh;
 }
 
-.single-event-wrapper {
+a {
+  color: var(--link-color);
+}
+
+.menu a,
+h1 a,
+h2 a,
+.time_and_place a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+.current-menu-item {
+  text-decoration: underline;
+}
+
+#main-column-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.single-event {
+#main-column {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: var(--max-content-width);
 }
 
-.single-event img {
+#main-column img {
   width: 100%;
 }
 
 .time_and_place {
   font-weight: bold;
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  margin: 3rem 0 3rem 0;
+  padding: 0;
 }

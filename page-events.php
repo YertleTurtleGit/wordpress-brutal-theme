@@ -28,10 +28,13 @@
         ?>
 
             <li>
+                <h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+                <span class="time_and_place">
                 <a href="<?php echo get_permalink(); ?>">
-                    <h2><?php the_title(); ?></h2>
+                    <?php echo get_post_meta($id, 'time_and_place', true); ?>
                 </a>
-                <p><?php echo get_post_meta($id, 'time_and_place', true); ?></p>
+                </span>
                 <?php echo get_event_image_tag($id); ?>
             </li>
             

@@ -60,6 +60,8 @@
 
 <body <?php body_class(); ?>>
 
-    <div id="header">
-        <?php wp_nav_menu("main"); ?>
-    </div>
+    <div id="main-column-wrapper">
+        <div id="main-column">
+            <div id="header">
+                <?php wp_nav_menu("main"); ?>
+            </div>
