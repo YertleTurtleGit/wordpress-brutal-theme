@@ -32,7 +32,7 @@
 
                 <span class="time_and_place">
                 <a href="<?php echo get_permalink(); ?>">
-                    <?php echo get_post_meta($id, 'time_and_place', true); ?>
+                    <?php echo get_post_meta($id, 'time_and_place'); ?>
                 </a>
                 </span>
                 <?php echo get_event_image_tag($id); ?>

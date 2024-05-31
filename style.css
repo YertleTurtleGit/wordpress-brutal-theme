@@ -62,6 +62,7 @@ h2 a,
 
 .time_and_place {
   font-weight: bold;
+  white-space: pre-line;
 }
 
 .event-list {
