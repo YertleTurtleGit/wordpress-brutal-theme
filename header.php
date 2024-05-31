@@ -9,28 +9,17 @@
     <meta name="title" content="Galerie Brutal" />
     <meta name="description" content="Galerie Brutal" />
 
-    <link href="<?php echo get_bloginfo('template_directory'); ?>/style.css" rel='stylesheet'>
+    <link href="<?php echo get_template_directory(); ?>/style.css" rel='stylesheet'>
 
     <?php if (is_singular() && pings_open()) { ?>
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-    <?php
-    }
-    wp_head(); ?>
+    <?php } wp_head(); ?>
 
     <?php
     global $post;
     $id = $post->ID;
 
-    if ($excerpt = $post->post_excerpt) {
-        $excerpt = strip_tags($post->post_excerpt);
-    } else {
-        $excerpt = get_bloginfo('description');
-    }
-
-    $page_permalink = get_the_permalink();
-    $page_title = get_the_title();
-    $page_name = get_bloginfo();
-    $og_title = $page_title;
+   
     ?>
 
     <title><?php echo $page_title; ?></title>
@@ -42,13 +31,12 @@
     <meta property="og:site_name" content="<?php echo $page_name; ?>" />
 
     <?php
-    $image_url = get_bloginfo('template_directory') . "/logo.png";
+    $fallback_image_url = get_template_directory() . "/logo.png";
+    $image_url = $fallback_image_url;
 
-    if (get_post_type($id) == 'event') {
+    if (get_post_type($id) === 'event') {
         $image_url = get_event_image_url($id);
-        if ($image_url == '') {
-            $image_url = get_bloginfo('template_directory') . "/logo.png";
-        }
+        if (is_null($image_url)) { $image_url = $fallback_image_url; }
     }
     ?>
 
