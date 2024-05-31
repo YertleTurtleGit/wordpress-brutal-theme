@@ -7,7 +7,7 @@ function get_event_image_url(int $event_id): ?int {
 
 function get_event_image_tag(int $event_id): string {
     $image_url = get_event_image_url($event_id);
-    if (!$image_url) { return ''; }
+    if (is_null($image_url)) { return ''; }
     return '<img src="' . $image_url . '" />';
 }
 ?>
