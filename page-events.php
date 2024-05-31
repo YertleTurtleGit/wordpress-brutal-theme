@@ -18,8 +18,8 @@ function get_event_image_tag(int $event_id): string {
             'post_status' => 'publish',
             'meta_key' => 'archive_date',
             'orderby' => 'meta_value_num',
-            'meta_type' => 'DATE',
-            'order' => 'DSC'
+            'meta_type' => 'NUMERIC',
+            'order' => 'DESC'
         )
     );
     ?>
@@ -30,6 +30,7 @@ function get_event_image_tag(int $event_id): string {
         <?php $id = get_the_ID(); ?>
 
         <?php if (true) { ?>
+
             <li class="event-list-item">
                 <a href="<?php echo get_permalink(); ?>">
                     <h2><?php the_title(); ?></h2>
@@ -37,7 +38,8 @@ function get_event_image_tag(int $event_id): string {
                 <p><?php echo get_post_meta($id, 'time_and_place', true); ?></p>
                 <?php echo get_event_image_tag($id); ?>
             </li>
-        <?php count++; } ?>
+            
+        <?php $count++; } ?>
     <?php
     endwhile;
     wp_reset_query();
