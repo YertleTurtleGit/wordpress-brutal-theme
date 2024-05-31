@@ -1,5 +1,7 @@
 <?php /* Template Name: Archiv Template */ ?>
 
+<?php get_header(); ?>
+
 <ul class="event-list">
     <?php
     $query = new WP_Query(
@@ -20,7 +22,10 @@
 
         <?php $id = get_the_ID(); ?>
 
-        <?php if (get_post_meta($id, 'archive_date', true) <= (int) date('Ymd')) { ?>
+        <?php
+        if (get_post_meta($id, 'archive_date', true) 
+            <= (int) date('Ymd')) { 
+        ?>
 
             <li>
                 <a href="<?php echo get_permalink(); ?>">
@@ -41,3 +46,5 @@
 <?php if ($count == 0) { ?>
     <p>Momentan gibt es noch keine Veranstaltungen im Archiv.</p>
 <?php } ?>
+
+<?php get_footer(); ?>
