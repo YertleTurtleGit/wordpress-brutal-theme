@@ -8,16 +8,42 @@ Text Domain: brutaltheme
 */
 
 :root {
-  --accent-color: rgb(194, 29, 0);
+  --link-color: rgb(194, 29, 0);
+  --font-color: black;
+  --max-content-width: 35rem;
 }
 
 * {
   font-family: sans-serif;
-  color: black;
+  color: var(--font-color);
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
   border: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.single-event-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.single-event {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--max-content-width);
+}
+
+.single-event img {
+  width: 100%;
+}
+
+.time_and_place {
+  font-weight: bold;
 }
