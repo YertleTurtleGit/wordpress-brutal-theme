@@ -1,7 +1,7 @@
 <?php
-function get_event_image_url(int $event_id): ?int {
-    if (!get_post_meta($event_id, 'image', true)) { return null; }
+function get_event_image_url(int $event_id): ?string {
     $image = get_post_meta($event_id, 'image', true);
+    if (!$image) { return null; }
     return wp_get_attachment_image_src($image, 'large')[0];
 }
 
