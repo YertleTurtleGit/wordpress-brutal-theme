@@ -1,0 +1,11 @@
+name: Screenshot
+on: [push]
+jobs:
+  Capture-Screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Screenshot Website
+        uses: swinton/screenshot-website@v1.x
+        with:
+          source: https://galerie-brutal.de/
+          destination: screenshot.png
