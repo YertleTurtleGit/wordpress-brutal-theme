@@ -1,11 +1,34 @@
 name: Screenshot
-on: [push]
+
+on:
+  [push]
+
 jobs:
-  Capture-Screenshot:
+  build:
     runs-on: ubuntu-latest
+
     steps:
+      - uses: actions/checkout@v2
+        with:
+           ref: main
+
       - name: Screenshot Website
         uses: swinton/screenshot-website@v1.x
         with:
           source: https://galerie-brutal.de/
           destination: screenshot.png
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: screenshot
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: update screenshot
+          branch: main
+          file_pattern: screenshot*.png
+        
+      - name: Clean
+        uses: GeekyEggo/delete-artifact@v1.0.0
+        with:
+          name: screenshot
