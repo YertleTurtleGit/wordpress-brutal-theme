@@ -1,0 +1,11 @@
+{
+  "name": "wordpress-brutal-theme",
+  "version": "1.0.0",
+  "description": "[![Screenshot](https://github.com/YertleTurtleGit/wordpress-brutal-theme/actions/workflows/screenshot.yml/badge.svg)](https://github.com/YertleTurtleGit/wordpress-brutal-theme/actions/workflows/screenshot.yml) # Brutal Theme ![Screenshot](https://github.com/YertleTurtleGit/wordpress-brutal-theme/blob/main/screenshot.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
