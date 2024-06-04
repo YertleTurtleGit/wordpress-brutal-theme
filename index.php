@@ -6,7 +6,10 @@
     </div>
     <div id="content">
         <p>blabla</p>
+        <div id="canvas-div"></div>
     </div>
 </div>
+
+<script src="render.js"></script>
 
 <?php get_footer(); ?>
