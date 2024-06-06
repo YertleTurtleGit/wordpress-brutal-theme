@@ -12,7 +12,7 @@
 
 <script
     type="module"
-    src="<?php echo get_bloginfo('template_directory'); ?>/render.js">
+    src="<?php echo get_bloginfo('template_directory'); ?>/dist/bundle.js">
 </script>
 
 <?php get_footer(); ?>

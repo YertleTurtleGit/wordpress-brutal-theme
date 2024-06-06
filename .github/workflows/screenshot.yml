@@ -1,7 +1,9 @@
 name: Screenshot
 
 on:
-  [push]
+  push:
+    branches:
+      - main
 
 jobs:
   build:
