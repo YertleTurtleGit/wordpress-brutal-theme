@@ -1,10 +1,10 @@
-import * as GaussianSplats3D from "./@mkkellogg/gaussian-splats-3d";
-import * as THREE from "./three";
+import * as GaussianSplats3D from '@mkkellogg/gaussian-splats-3d';
+import * as THREE from 'three';
 
 const templateUrl = '<?= get_bloginfo("template_url"); ?>';
 console.log(templateUrl);
 
-console.log("nlabla")
+console.log("nlabla");
 
 const renderWidth = 800;
 const renderHeight = 600;
