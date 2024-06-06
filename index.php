@@ -10,6 +10,9 @@
     </div>
 </div>
 
-<script src="render.js"></script>
+<script
+    type="module"
+    src="<?php echo get_bloginfo('template_directory'); ?>/render.js">
+</script>
 
 <?php get_footer(); ?>

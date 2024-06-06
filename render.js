@@ -1,5 +1,10 @@
-import * as GaussianSplats3D from "@mkkellogg/gaussian-splats-3d";
-import * as THREE from "three";
+import * as GaussianSplats3D from "./@mkkellogg/gaussian-splats-3d";
+import * as THREE from "./three";
+
+const templateUrl = '<?= get_bloginfo("template_url"); ?>';
+console.log(templateUrl);
+
+console.log("nlabla")
 
 const renderWidth = 800;
 const renderHeight = 600;
@@ -43,6 +48,6 @@ const viewer = new GaussianSplats3D.Viewer({
   logLevel: GaussianSplats3D.LogLevel.None,
   sphericalHarmonicsDegree: 0,
 });
-viewer.addSplatScene("./test.ply").then(() => {
+viewer.addSplatScene("test.ply").then(() => {
   requestAnimationFrame(update);
 });
