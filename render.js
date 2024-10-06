@@ -1,53 +1,70 @@
-import * as GaussianSplats3D from "./@mkkellogg/gaussian-splats-3d";
-import * as THREE from "./three";
+import { Viewer, SceneRevealMode } from "@mkkellogg/gaussian-splats-3d";
+import * as THREE from "three";
 
-const templateUrl = '<?= get_bloginfo("template_url"); ?>';
-console.log(templateUrl);
-
-console.log("nlabla")
-
-const renderWidth = 800;
-const renderHeight = 600;
+const renderWidth = window.innerWidth;
+const renderHeight = window.innerHeight;
 
 const rootElement = document.getElementById("canvas-div");
-rootElement.style.width = renderWidth + "px";
-rootElement.style.height = renderHeight + "px";
 
+const threeScene = new THREE.Scene();
 const renderer = new THREE.WebGLRenderer({
   antialias: false,
+  alpha: true,
 });
 renderer.setSize(renderWidth, renderHeight);
 rootElement.appendChild(renderer.domElement);
 
-const camera = new THREE.PerspectiveCamera(
-  65,
-  renderWidth / renderHeight,
-  0.1,
-  500
-);
-camera.position.copy(new THREE.Vector3().fromArray([-1, -4, 6]));
-camera.up = new THREE.Vector3().fromArray([0, -1, -0.6]).normalize();
-camera.lookAt(new THREE.Vector3().fromArray([0, 4, -0]));
-
-const viewer = new GaussianSplats3D.Viewer({
+const viewer = new Viewer({
+  threeScene,
   selfDrivenMode: false,
-  renderer: renderer,
-  camera: camera,
-  useBuiltInControls: false,
-  ignoreDevicePixelRatio: false,
-  gpuAcceleratedSort: true,
-  halfPrecisionCovariancesOnGPU: true,
-  sharedMemoryForWorkers: true,
-  integerBasedSort: true,
-  dynamicScene: false,
-  webXRMode: GaussianSplats3D.WebXRMode.None,
-  renderMode: GaussianSplats3D.RenderMode.OnChange,
-  sceneRevealMode: GaussianSplats3D.SceneRevealMode.Instant,
-  antialiased: false,
-  focalAdjustment: 1.0,
-  logLevel: GaussianSplats3D.LogLevel.None,
-  sphericalHarmonicsDegree: 0,
+  renderer,
+  cameraUp: [0, -1, 0],
+  initialCameraPosition: [0, 0, 1.5],
+  initialCameraLookAt: [0, 0, 0],
+  sharedMemoryForWorkers: false,
+  antialiased: true,
+  sphericalHarmonicsDegree: 2,
+  useBuiltInControls: true,
+  sceneRevealMode: SceneRevealMode.Gradual,
 });
-viewer.addSplatScene("test.ply").then(() => {
-  requestAnimationFrame(update);
-});
+
+const boom = new THREE.Group();
+boom.add(viewer.camera);
+threeScene.add(boom);
+
+function onScroll() {
+  boom.rotation.x = window.scrollY / 100;
+  boom.rotation.y = window.scrollY / 50;
+  viewer.update();
+  viewer.render();
+}
+
+const scale = 0.4;
+
+viewer
+  .addSplatScenes([
+    {
+      path: THEME_PATH + "rock.ply",
+      scale: [scale, scale, scale],
+      position: [0, 0, 0],
+    },
+    {
+      path: THEME_PATH + "rock.ply",
+      scale: [scale, scale, scale],
+      position: [0, scale, 0],
+    },
+    {
+      path: THEME_PATH + "rock.ply",
+      scale: [scale, scale, scale],
+      position: [0, -scale, 0],
+    },
+  ])
+  .then(() => {
+    function renderWhenReady() {
+      viewer.update();
+      setTimeout(viewer.render, 1000); // TODO Find a better way.
+    }
+    renderWhenReady();
+  });
+
+document.addEventListener("scroll", onScroll);
