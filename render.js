@@ -1,9 +1,6 @@
 import { Viewer, SceneRevealMode } from "@mkkellogg/gaussian-splats-3d";
 import * as THREE from "three";
 
-const renderWidth = window.innerWidth;
-const renderHeight = window.innerHeight;
-
 const rootElement = document.getElementById("canvas-div");
 const titleLogo = document.getElementById("title-logo");
 
@@ -12,7 +9,7 @@ const renderer = new THREE.WebGLRenderer({
   antialias: false,
   alpha: true,
 });
-renderer.setSize(renderWidth, renderHeight);
+
 rootElement.appendChild(renderer.domElement);
 
 renderer.domElement.id = "rock-canvas";
@@ -22,15 +19,28 @@ const viewer = new Viewer({
   selfDrivenMode: false,
   renderer,
   cameraUp: [0, 0, -1],
-  initialCameraPosition: [0, -0.5, 1.5],
+  initialCameraPosition: [0, -1, 1.5],
   initialCameraLookAt: [0, 0, 0],
-  sharedMemoryForWorkers: false,
+  sharedMemoryForWorkers: true,
   antialiased: true,
   sphericalHarmonicsDegree: 2,
   useBuiltInControls: false,
-  sceneRevealMode: SceneRevealMode.Gradual,
+  sceneRevealMode: SceneRevealMode.Default,
   ignoreDevicePixelRatio: true,
+  freeIntermediateSplatData: true,
 });
+
+function onResize() {
+  const renderWidth = window.innerWidth;
+  const renderHeight = window.innerHeight;
+  renderer.setSize(renderWidth, renderHeight);
+  viewer.updateForRendererSizeChanges();
+  viewer.updateCameraTransition();
+  viewer.updateControlPlane();
+  viewer.update();
+  viewer.render();
+}
+onResize();
 
 const boom = new THREE.Group();
 boom.add(viewer.camera);
@@ -65,3 +75,4 @@ viewer
   });
 
 document.addEventListener("scroll", onScroll);
+window.addEventListener("resize", onResize);
