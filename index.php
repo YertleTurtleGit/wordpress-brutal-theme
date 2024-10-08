@@ -2,7 +2,7 @@
 
 <div id="body">
     <div id="title">
-        <img id="title-logo" src = "<?php echo get_bloginfo('template_directory'); ?>/brutal_logo.svg" alt="Galerie Brutal"/>
+        <img id="title-logo" src="<?php echo get_bloginfo('template_directory'); ?>/brutal_logo.svg" alt="Galerie Brutal"/>
     </div>
 
     <div id="main-column">
@@ -23,7 +23,9 @@
         </div>
     </div>
     
-    <div id="canvas-div"></div>
+    <div id="canvas-div">
+        <div id="canvas-placeholder" style="background: url(<?php echo get_bloginfo('template_directory'); ?>/rock_placeholder.webp)"></div>
+    </div>
 </div>
 
 <script type="text/javascript">

@@ -2,7 +2,7 @@ import { Viewer, SceneRevealMode } from "@mkkellogg/gaussian-splats-3d";
 import * as THREE from "three";
 
 const rootElement = document.getElementById("canvas-div");
-const titleLogo = document.getElementById("title-logo");
+const canvasPlaceholder = document.getElementById("canvas-placeholder");
 
 const threeScene = new THREE.Scene();
 const renderer = new THREE.WebGLRenderer({
@@ -21,7 +21,8 @@ const viewer = new Viewer({
   cameraUp: [0, 0, -1],
   initialCameraPosition: [0, -1, 1.5],
   initialCameraLookAt: [0, 0, 0],
-  sharedMemoryForWorkers: true,
+  sharedMemoryForWorkers: false,
+  gpuAcceleratedSort: false,
   antialiased: true,
   sphericalHarmonicsDegree: 2,
   useBuiltInControls: false,
@@ -67,8 +68,8 @@ viewer
     function renderWhenReady() {
       setTimeout(() => {
         viewer.update();
-        titleLogo.style.filter = "invert()";
         onScroll();
+        canvasPlaceholder.remove();
       }, 1000); // TODO Find a better way.
     }
     renderWhenReady();
