@@ -24,7 +24,7 @@ const viewer = new Viewer({
   sharedMemoryForWorkers: false,
   gpuAcceleratedSort: false,
   antialiased: true,
-  sphericalHarmonicsDegree: 2,
+  sphericalHarmonicsDegree: 0,
   useBuiltInControls: false,
   sceneRevealMode: SceneRevealMode.Default,
   ignoreDevicePixelRatio: true,
@@ -36,9 +36,12 @@ function onResize() {
   const renderHeight = window.innerHeight;
   renderer.setSize(renderWidth, renderHeight);
   viewer.updateForRendererSizeChanges();
-  viewer.updateCameraTransition();
+  viewer.updateSplatMesh();
+  viewer.updateMeshCursor();
+  viewer.updateFPS();
+  viewer.timingSensitiveUpdates();
+  viewer.updateInfoPanel();
   viewer.updateControlPlane();
-  viewer.update();
   viewer.render();
 }
 onResize();
@@ -56,7 +59,7 @@ function onScroll() {
 const scale = 0.75;
 
 viewer
-  .addSplatScene(THEME_PATH + "rock.ply", {
+  .addSplatScene(THEME_PATH + "rock_small.ksplat", {
     scale: [scale, scale, scale],
     onProgress: () => {
       onScroll();
