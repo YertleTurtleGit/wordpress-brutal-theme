@@ -9,13 +9,15 @@ Text Domain: brutaltheme
 
 :root {
   --link-color: rgb(194, 29, 0);
-  --font-color: black;
+  --font-color: rgb(235, 47, 0);
   --max-content-width: 35rem;
 }
 
 * {
+  font-size: 1.15rem;
   font-family: sans-serif;
   color: var(--font-color);
+  text-align: right;
 }
 
 html,
@@ -29,6 +31,11 @@ body {
 
 a {
   color: var(--link-color);
+}
+
+p {
+  display: inline;
+  line-height: 150%;
 }
 
 .menu a,
@@ -50,6 +57,7 @@ h2 a,
 }
 
 #main-column {
+  margin-top: 66vh;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -101,8 +109,11 @@ h2 a,
 }
 
 #title {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: 75vh;
+  height: 100vh;
   display: flex;
   align-content: center;
   justify-content: center;
