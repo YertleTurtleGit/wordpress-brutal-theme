@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="body">
+<div id="index-body">
     <div id="title">
         <img id="title-logo" src="<?php echo get_bloginfo('template_directory'); ?>/brutal_logo.svg" alt="Galerie Brutal"/>
     </div>
