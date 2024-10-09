@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: screenshot
+          name: screenshot.png
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
