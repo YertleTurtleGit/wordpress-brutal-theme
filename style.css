@@ -46,6 +46,11 @@ h2 a,
   color: var(--font-color);
 }
 
+#header {
+  position: relative;
+  z-index: 2;
+}
+
 .current-menu-item {
   text-decoration: underline;
 }
