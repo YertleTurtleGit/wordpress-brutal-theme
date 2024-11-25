@@ -2,7 +2,6 @@ import { Viewer, SceneRevealMode } from "@mkkellogg/gaussian-splats-3d";
 import * as THREE from "three";
 
 const rootElement = document.getElementById("canvas-div");
-const canvasPlaceholder = document.getElementById("canvas-placeholder");
 
 const threeScene = new THREE.Scene();
 const renderer = new THREE.WebGLRenderer({
@@ -19,7 +18,7 @@ const viewer = new Viewer({
   selfDrivenMode: false,
   renderer,
   cameraUp: [0, 0, -1],
-  initialCameraPosition: [0, -1, 1.5],
+  initialCameraPosition: [0, -1, 0.6],
   initialCameraLookAt: [0, 0, 0],
   sharedMemoryForWorkers: false,
   gpuAcceleratedSort: false,
@@ -32,8 +31,8 @@ const viewer = new Viewer({
 });
 
 function onResize() {
-  const renderWidth = window.innerWidth;
-  const renderHeight = window.innerHeight;
+  const renderWidth = rootElement.clientWidth;
+  const renderHeight = rootElement.clientHeight;
   renderer.setSize(renderWidth, renderHeight);
   viewer.updateForRendererSizeChanges();
   viewer.updateSplatMesh();
@@ -51,8 +50,8 @@ boom.add(viewer.camera);
 threeScene.add(boom);
 
 function onScroll() {
-  boom.rotation.x = window.scrollY / 250;
-  //boom.rotation.y = window.scrollY / 100;
+  boom.rotation.x = window.scrollY / 517;
+  boom.rotation.y = window.scrollY / 1347;
   viewer.render();
 }
 
@@ -69,11 +68,8 @@ viewer
   })
   .then(() => {
     function renderWhenReady() {
-      setTimeout(() => {
-        viewer.update();
-        onScroll();
-        canvasPlaceholder.remove();
-      }, 1000); // TODO Find a better way.
+      viewer.update();
+      onScroll();
     }
     renderWhenReady();
   });
