@@ -18,7 +18,6 @@ jobs:
         uses: swinton/screenshot-website@v1.x
         with:
           source: https://galerie-brutal.de/
-          destination: screenshot
           width: 1200
           height: 900
 
