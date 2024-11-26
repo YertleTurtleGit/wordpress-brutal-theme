@@ -22,11 +22,10 @@ jobs:
           width: 1200          
 
       - name: Download screenshot artifact
-        uses: actions/download-artifact@v4
+        uses: aochmann/actions-download-artifact@1.0.4
         with:
           name: screenshot
-          path: screenshot*.png
-
+          
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: update screenshot
