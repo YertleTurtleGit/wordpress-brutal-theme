@@ -25,8 +25,8 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 a {
@@ -112,23 +112,19 @@ h2 a,
 
 #content {
   position: relative;
-}
-
-#title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  z-index: 5;
-  pointer-events: none;
+  padding: 1rem;
 }
 
 #title-logo {
-  width: 35rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35vh;
+  height: 35vh;
   max-width: 100%;
   max-height: 100%;
+  min-width: 20rem;
+  min-height: 20rem;
+  translate: -50% -50%;
+  z-index: 2;
 }
