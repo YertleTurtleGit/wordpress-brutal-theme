@@ -19,18 +19,13 @@ jobs:
         with:
           source: https://galerie-brutal.de/
           destination: screenshot.png
-          width: 1200
+          width: 1200          
 
-      - name: Upload screenshot artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: screenshot
-          path: screenshot*.png
-          
       - name: Download screenshot artifact
         uses: actions/download-artifact@v4
         with:
           name: screenshot
+          path: screenshot*.png
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
