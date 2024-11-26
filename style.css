@@ -48,7 +48,6 @@ h2 a,
 
 #header {
   position: relative;
-  z-index: 2;
 }
 
 .current-menu-item {
@@ -100,30 +99,20 @@ h2 a,
 }
 
 #canvas-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
   height: 25vh;
   width: 25vh;
+  translate: -50% -50%;
   background-color: var(--font-color);
-}
-
-#canvas-div-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
 }
 
 #content {
   position: relative;
-  z-index: 1;
 }
 
 #title {
-  z-index: 20;
   position: absolute;
   top: 0;
   left: 0;
@@ -132,6 +121,8 @@ h2 a,
   display: flex;
   align-content: center;
   justify-content: center;
+  z-index: 5;
+  pointer-events: none;
 }
 
 #title-logo {
