@@ -27,7 +27,8 @@ const viewer = new Viewer({
   useBuiltInControls: false,
   sceneRevealMode: SceneRevealMode.Default,
   ignoreDevicePixelRatio: true,
-  freeIntermediateSplatData: true,
+  //freeIntermediateSplatData: true,
+  focalAdjustment: 2.0,
 });
 
 function onResize() {
@@ -49,10 +50,16 @@ const boom = new THREE.Group();
 boom.add(viewer.camera);
 threeScene.add(boom);
 
+const framesPerSecondCap = 30;
+const msBetweenFramesCap = (1 / framesPerSecondCap) * 1000;
+let lastRenderTime = 0;
 function onScroll() {
-  boom.rotation.x = window.scrollY / 517;
-  boom.rotation.y = window.scrollY / 1347;
-  viewer.render();
+  if (performance.now() - lastRenderTime > msBetweenFramesCap) {
+    lastRenderTime = performance.now();
+    boom.rotation.x = window.scrollY / 517;
+    boom.rotation.y = window.scrollY / 1347;
+    viewer.render();
+  }
 }
 
 const scale = 0.75;
