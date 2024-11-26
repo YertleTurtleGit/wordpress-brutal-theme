@@ -19,7 +19,8 @@ jobs:
         with:
           source: https://galerie-brutal.de/
           destination: screenshot.png
-          width: 600          
+          width: 1200
+          height: 900
 
       - name: Download screenshot artifact
         uses: aochmann/actions-download-artifact@1.0.4
