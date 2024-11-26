@@ -70,6 +70,10 @@ viewer
     function renderWhenReady() {
       viewer.update();
       onScroll();
+      setTimeout(() => {
+        viewer.update();
+        onScroll();
+      }, 1000);
     }
     renderWhenReady();
   });
