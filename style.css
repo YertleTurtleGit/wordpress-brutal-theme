@@ -64,13 +64,11 @@ h2 a,
 }
 
 #main-column-wrapper {
-  display: flex;
-  justify-content: left;
-  width: 100%;
-}
-
-#index-body > #main-column {
   margin-top: 66vh;
+  margin-bottom: 66vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 #main-column {
