@@ -29,6 +29,14 @@ body {
   height: 100%;
 }
 
+#impress-menu {
+  list-style: none;
+}
+
+#impress-menu a {
+  font-size: 75%;
+}
+
 a {
   color: var(--link-color);
 }
