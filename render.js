@@ -54,12 +54,13 @@ const framesPerSecondCap = 30;
 const msBetweenFramesCap = (1 / framesPerSecondCap) * 1000;
 let lastRenderTime = 0;
 function onScroll() {
-  if (performance.now() - lastRenderTime > msBetweenFramesCap) {
+  requestAnimationFrame(() => {
+    if (performance.now() - lastRenderTime < msBetweenFramesCap) return;
     lastRenderTime = performance.now();
     boom.rotation.x = window.scrollY / 517;
     boom.rotation.y = window.scrollY / 1347;
     viewer.render();
-  }
+  });
 }
 
 const scale = 0.75;
@@ -78,7 +79,7 @@ viewer
       viewer.update();
       onScroll();
       setTimeout(() => {
-        viewer.update();
+        requestAnimationFrame(viewer.update);
         onScroll();
       }, 1000);
     }
