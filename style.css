@@ -47,6 +47,13 @@ p {
   line-height: 150%;
 }
 
+h1,
+h2,
+h1 *,
+h2 * {
+  font-size: 2rem;
+}
+
 .menu a,
 h1 a,
 h2 a,
@@ -75,6 +82,7 @@ h2 a,
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 1rem;
   max-width: var(--max-content-width);
 }
 
@@ -83,8 +91,10 @@ h2 a,
 }
 
 .time_and_place {
+  position: relative;
   font-weight: bold;
   white-space: pre-line;
+  margin-top: -2.75rem; /* This counteracts pre-line. */
 }
 
 .event-list {
@@ -92,7 +102,6 @@ h2 a,
   flex-direction: column;
   list-style: none;
   margin: 0;
-  padding: 0;
 }
 
 .menu {
@@ -119,7 +128,6 @@ h2 a,
 
 #content {
   position: relative;
-  padding: 1rem;
 }
 
 #title-logo {
