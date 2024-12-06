@@ -17,7 +17,6 @@ Text Domain: brutaltheme
   font-size: 1.1rem;
   font-family: sans-serif;
   color: var(--font-color);
-  background-color: var(--background-color);
   text-align: right;
 }
 
@@ -28,6 +27,7 @@ body {
   border: 0;
   width: 100%;
   height: 100%;
+  background-color: var(--background-color);
 }
 
 #impress-menu {
