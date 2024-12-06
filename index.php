@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div id="index-body">
-    <img id="title-logo" src="<?php echo get_bloginfo('template_directory'); ?>/brutal_logo.svg" alt="Galerie Brutal"/>
+    <img id="title-logo" src="<?php echo get_bloginfo('template_directory'); ?>/logo.svg" alt="Galerie Brutal"/>
 
     <div id="main-column-wrapper">
         <div id="main-column">
