@@ -79,7 +79,9 @@ viewer
       viewer.update();
       onScroll();
       setTimeout(() => {
-        requestAnimationFrame(viewer.update);
+        requestAnimationFrame(() => {
+          viewer.update();
+        });
         onScroll();
       }, 1000);
     }
