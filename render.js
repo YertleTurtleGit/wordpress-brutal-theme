@@ -69,24 +69,12 @@ viewer
   .addSplatScene(THEME_PATH + "rock_small.ksplat", {
     scale: [scale, scale, scale],
     onProgress: () => {
-      onScroll();
+      setTimeout(viewer.render.bind(viewer), 1000);
     },
     showLoadingUI: false,
     progressiveLoad: true,
   })
-  .then(() => {
-    function renderWhenReady() {
-      viewer.update();
-      onScroll();
-      setTimeout(() => {
-        requestAnimationFrame(() => {
-          viewer.update();
-        });
-        onScroll();
-      }, 1000);
-    }
-    renderWhenReady();
-  });
+  .then(viewer.update.bind(viewer));
 
 document.addEventListener("scroll", onScroll);
 window.addEventListener("resize", onResize);
