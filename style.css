@@ -8,8 +8,8 @@ Text Domain: brutaltheme
 */
 
 :root {
-  --link-color: rgb(194, 29, 0);
   --font-color: rgb(235, 47, 0);
+  --background-color: white;
   --max-content-width: 35rem;
 }
 
@@ -17,6 +17,7 @@ Text Domain: brutaltheme
   font-size: 1.1rem;
   font-family: sans-serif;
   color: var(--font-color);
+  background-color: var(--background-color);
   text-align: right;
 }
 
@@ -32,14 +33,12 @@ body {
 #impress-menu {
   padding: 1rem;
   list-style: none;
+  background-color: var(--background-color);
+  color: var(--font-color);
 }
 
 #impress-menu a {
   font-size: 75%;
-}
-
-a {
-  color: var(--link-color);
 }
 
 p {
