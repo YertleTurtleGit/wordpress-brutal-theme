@@ -69,6 +69,7 @@ viewer
   .addSplatScene(THEME_PATH + "rock_small.ksplat", {
     scale: [scale, scale, scale],
     onProgress: () => {
+      viewer.render();
       setTimeout(viewer.render.bind(viewer), 1000);
     },
     showLoadingUI: false,
