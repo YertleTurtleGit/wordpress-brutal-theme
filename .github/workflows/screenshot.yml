@@ -30,7 +30,7 @@ jobs:
         with:
           commit_message: update screenshot
           branch: main
-          file_pattern: screenshot*.png
+          file_pattern: screenshot.png
         
       - name: Clean
         uses: GeekyEggo/delete-artifact@v1.0.0
