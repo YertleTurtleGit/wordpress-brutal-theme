@@ -126,10 +126,6 @@ h2 a,
   user-select: none;
 }
 
-#content {
-  position: relative;
-}
-
 #title-logo {
   position: absolute;
   top: 50%;
